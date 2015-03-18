@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LetraAViewController : UIViewController
-
-@end
+//@interface LetraViewController : UIViewController
+//
+//@property NSArray* letras;
+//@property NSArray* palavras;
+//@property NSArray* imagens;
+//
+//@end
