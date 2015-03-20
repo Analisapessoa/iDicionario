@@ -20,6 +20,8 @@
     Dicionario *dic;
     UIBarButtonItem *next;
     UIBarButtonItem *back;
+    //toolBar
+    UIBarButtonItem *ok;
 }
 
 
@@ -50,7 +52,7 @@
     
     dic.botao = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
-    dic.botao.frame = CGRectMake(0,100, (self.view.frame.size.width),50);
+    dic.botao.frame = CGRectMake(0,150, (self.view.frame.size.width),50);
     [dic.botao setTitle:[dic.palavras objectAtIndex:dic.i] forState:UIControlStateNormal];
     
     UILongPressGestureRecognizer *tocarNoBotao = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(animacaoPalavra:)];
@@ -64,7 +66,18 @@
     [self.view addSubview:dic.imagem];
     [self.view addSubview:dic.botao];
     [self dispatch];
-
+    
+    //implementacao da toolBar
+    UIToolbar *tb = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 60, self.view.bounds.size.width, 70.0)];
+    [self.view addSubview:tb];
+    
+    ok = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(trocarPalavra)];
+    tb.items = @[ok];
+    
+    dic.novaPalavra = [[UITextField alloc] initWithFrame:CGRectMake(40, 75, 300, 40)];
+    dic.novaPalavra.placeholder = @"inserir nova palavra desejada";
+    [self.view addSubview:dic.novaPalavra];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,8 +219,7 @@
 
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
    UITouch *tocar = [touches anyObject];
     if (tocar.phase == UITouchPhaseBegan)
     {
@@ -215,12 +227,16 @@
     }
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *tocar = [touches anyObject];
     CGPoint posicao = [tocar locationInView:self.view];
     dic.imagem.center = CGPointMake(posicao.x, posicao.y);
     
+}
+
+-(void)trocarPalavra
+{
+    [dic.botao setTitle:dic.novaPalavra.text forState:UIControlStateNormal];
 }
 
 

@@ -16,6 +16,8 @@
 @property int i;
 @property UIImageView *imagem;
 @property UIButton *botao;
+//precisa para a toolBar
+@property UITextField *novaPalavra;
 
 +(Dicionario *) instance;
 -(void)next;

@@ -10,12 +10,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Dicionario.h"
 
-@interface View2 : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface View2 : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIToolbarDelegate>
 
 @property int flagColor;
 
 
 -(void)animacaoPalavra: (UIButton*) label;
 -(void)animacaoImagem: (UIImageView *) label;
+-(void)trocarPalavra;
 
 @end
