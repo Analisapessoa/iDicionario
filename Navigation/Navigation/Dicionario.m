@@ -27,4 +27,5 @@ static Dicionario *instancia = nil;
     _i--;
 }
 
+
 @end

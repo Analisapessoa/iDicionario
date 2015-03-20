@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListaTableViewController.h"
+#import "TabBarController.h"
 
 @interface MackenzieAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UITabBarController *tbc;
 
 
 @end

@@ -33,12 +33,12 @@
     dic.palavras = [NSArray arrayWithObjects:@"Abelha",@"Bola",@"Cão",@"Dinossauro",@"Elefante",@"Foca",@"Gato",@"Hipopótamo",@"Indio",@"Jaboti",@"Kiwi",@"Leão",
                  @"Macaco",@"Nemo",@"Ovelha",@"Pica-Pau",@"Queijo",@"Rato",@"Sapo",@"Tenis",@"Urso",@"Vela",@"Walkman",
                  @"Xícara",@"Yakult",@"Zebra", nil ];
-    dic.imagens = [[NSArray alloc ] initWithObjects:[UIImage imageNamed:@"A.jpg"],[UIImage imageNamed:@"B.jpg"],[UIImage imageNamed:@"C.jpg"],[UIImage imageNamed:@"D.jpg"],[UIImage imageNamed:@"E.jpg"],[UIImage imageNamed:@"F.jpg"],[UIImage imageNamed:@"G.jpg"],[UIImage imageNamed:@"H.jpg"],[UIImage imageNamed:@"I.jpg"],[UIImage imageNamed:@"J.jpg"],[UIImage imageNamed:@"K.jpg"],[UIImage imageNamed:@"L.jpg"],[UIImage imageNamed:@"M.jpg"],[UIImage imageNamed:@"N.jpg"],[UIImage imageNamed:@"O.jpg"],[UIImage imageNamed:@"P.jpg"],[UIImage imageNamed:@"Q.jpg"],[UIImage imageNamed:@"R.jpg"],[UIImage imageNamed:@"S.jpg"],[UIImage imageNamed:@"T.jpg"],[UIImage imageNamed:@"U.jpg"],[UIImage imageNamed:@"V.jpg"],[UIImage imageNamed:@"W.jpg"],[UIImage imageNamed:@"X.jpg"],[UIImage imageNamed:@"Y.jpg"],[UIImage imageNamed:@"Z.jpg"],nil];
 
+        dic.imagens = [[NSArray alloc ] initWithObjects:[UIImage imageNamed:@"A"],[UIImage imageNamed:@"B"],[UIImage imageNamed:@"C"],[UIImage imageNamed:@"D"],[UIImage imageNamed:@"E"],[UIImage imageNamed:@"F"],[UIImage imageNamed:@"G"],[UIImage imageNamed:@"H"],[UIImage imageNamed:@"I"], [UIImage imageNamed:@"J"], [UIImage imageNamed:@"K"], [UIImage imageNamed:@"L"], [UIImage imageNamed:@"M"], [UIImage imageNamed:@"N"], [UIImage imageNamed:@"O"], [UIImage imageNamed:@"P"], [UIImage imageNamed:@"Q"], [UIImage imageNamed:@"R"], [UIImage imageNamed:@"S"], [UIImage imageNamed:@"T"], [UIImage imageNamed:@"U"], [UIImage imageNamed:@"V"], [UIImage imageNamed:@"W"], [UIImage imageNamed:@"X"], [UIImage imageNamed:@"Y"], [UIImage imageNamed:@"Z"], nil];
     
 //    UIButton *botao = [UIButton buttonWithType:UIButtonTypeSystem];
     
-    self.title = [dic.letras objectAtIndex:dic.i];
+    self.navigationItem.title = [dic.letras objectAtIndex:dic.i];
     
     next = [[UIBarButtonItem alloc]
             initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
@@ -56,8 +56,7 @@
     UILongPressGestureRecognizer *tocarNoBotao = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(animacaoPalavra::)];
     [dic.imagem addGestureRecognizer:tocarNoBotao];
 
-    
-    //dic.imagem.frame = CGRectMake(15, 200, 300, 300);
+
     dic.imagem = [[UIImageView alloc] initWithFrame:CGRectMake(15, 200, 300, 300)];
     dic.imagem.image = [dic.imagens objectAtIndex:dic.i];
     
@@ -88,24 +87,29 @@
     ;
 }
 
--(void)animacaoPalavra:(UIButton *)label
+-(void)animacaoPalavra:(UILongPressGestureRecognizer *)touch
 {
-//    if(touch.state == UIGestureRecognizerStateBegan){
-//        [UIView animateWithDuration:1.0 animations:^{
-//            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-//            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:[dic.palavras objectAtIndex:dic.i]];
-//            [utterance setPitchMultiplier:1.15f];
-//            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
-//            [utterance setRate:0.03f];
-//            [synthesizer speakUtterance:utterance];
-//            dic.imagem.transform = CGAffineTransformMakeScale(1.3, 1.3);
-//        }];
-//    }
-//    else if (touch.state == UIGestureRecognizerStateEnded) {
-//        [UIView animateWithDuration:1.0 animations:^{
-//            dic.imagem.transform = CGAffineTransformMakeScale(1.0, 1.0);
-//        }];
-//    }
+    if(touch.state == UIGestureRecognizerStateBegan){
+        [UIView animateWithDuration:1.0 animations:^{
+            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:[dic.palavras objectAtIndex:dic.i]];
+            [utterance setPitchMultiplier:1.15f];
+            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
+            [utterance setRate:0.03f];
+            [synthesizer speakUtterance:utterance];
+            dic.imagem.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        }];
+    }
+    else if (touch.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:1.0 animations:^{
+            dic.imagem.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+    }
+}
+
+-(void)animacaoImagem:(UIImageView *)label
+{
+    ;
 }
 
 -(void) dispatch {
@@ -152,7 +156,7 @@
             
 -(void)next:(id)sender
 {
-    if (dic.i==25) {
+    if (dic.i==3) {
         dic.i=0;
     }
     else dic.i++;
@@ -161,7 +165,7 @@
     
     [UIView animateWithDuration:1.0 animations:^{
         dic.imagem.transform = CGAffineTransformMakeScale(0.01, 0.01);
-        dic.botao.transform = CGAffineTransformMakeTranslation(0.0, -50.0);
+        dic.botao.transform = CGAffineTransformMakeTranslation(0.0, -35.0);
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:0.75
@@ -190,7 +194,7 @@
     
     [UIView animateWithDuration:1.0 animations:^{
         dic.imagem.transform = CGAffineTransformMakeScale(0.01, 0.01);
-        dic.botao.transform = CGAffineTransformMakeTranslation(0.0, -50.0);
+        dic.botao.transform = CGAffineTransformMakeTranslation(0.0, -35.0);
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:0.75

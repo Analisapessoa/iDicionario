@@ -21,6 +21,9 @@
 		27156F7218B76AF50053A99C /* NavigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7118B76AF50053A99C /* NavigationTests.m */; };
 		A1251F031AB862E2000CCD12 /* View2.m in Sources */ = {isa = PBXBuildFile; fileRef = A1251F021AB862E2000CCD12 /* View2.m */; };
 		A12C0FDF1AB9912700FCFDE8 /* Dicionario.m in Sources */ = {isa = PBXBuildFile; fileRef = A12C0FDE1AB9912700FCFDE8 /* Dicionario.m */; };
+		A141B30A1ABAE052005F50AD /* ListaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A141B3091ABAE052005F50AD /* ListaTableViewController.m */; };
+		A141B30D1ABAF0A7005F50AD /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A141B30C1ABAF0A7005F50AD /* TabBarController.m */; };
+		A199ECAB1ABB2930004E7BA5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A199ECAA1ABB2930004E7BA5 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,11 @@
 		A1251F021AB862E2000CCD12 /* View2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View2.m; sourceTree = "<group>"; };
 		A12C0FDD1AB9912700FCFDE8 /* Dicionario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dicionario.h; sourceTree = "<group>"; };
 		A12C0FDE1AB9912700FCFDE8 /* Dicionario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dicionario.m; sourceTree = "<group>"; };
+		A141B3081ABAE052005F50AD /* ListaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaTableViewController.h; sourceTree = "<group>"; };
+		A141B3091ABAE052005F50AD /* ListaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaTableViewController.m; sourceTree = "<group>"; };
+		A141B30B1ABAF0A7005F50AD /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		A141B30C1ABAF0A7005F50AD /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		A199ECAA1ABB2930004E7BA5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A199ECAB1ABB2930004E7BA5 /* AVFoundation.framework in Frameworks */,
 				27156F4F18B76AF50053A99C /* CoreGraphics.framework in Frameworks */,
 				27156F5118B76AF50053A99C /* UIKit.framework in Frameworks */,
 				27156F4D18B76AF50053A99C /* Foundation.framework in Frameworks */,
@@ -102,6 +111,7 @@
 		27156F4B18B76AF50053A99C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A199ECAA1ABB2930004E7BA5 /* AVFoundation.framework */,
 				27156F4C18B76AF50053A99C /* Foundation.framework */,
 				27156F4E18B76AF50053A99C /* CoreGraphics.framework */,
 				27156F5018B76AF50053A99C /* UIKit.framework */,
@@ -119,6 +129,10 @@
 				27156F5318B76AF50053A99C /* Supporting Files */,
 				A1251F011AB862E2000CCD12 /* View2.h */,
 				A1251F021AB862E2000CCD12 /* View2.m */,
+				A141B3081ABAE052005F50AD /* ListaTableViewController.h */,
+				A141B3091ABAE052005F50AD /* ListaTableViewController.m */,
+				A141B30B1ABAF0A7005F50AD /* TabBarController.h */,
+				A141B30C1ABAF0A7005F50AD /* TabBarController.m */,
 				A12C0FDD1AB9912700FCFDE8 /* Dicionario.h */,
 				A12C0FDE1AB9912700FCFDE8 /* Dicionario.m */,
 			);
@@ -250,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A141B30A1ABAE052005F50AD /* ListaTableViewController.m in Sources */,
 				A12C0FDF1AB9912700FCFDE8 /* Dicionario.m in Sources */,
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
+				A141B30D1ABAF0A7005F50AD /* TabBarController.m in Sources */,
 				A1251F031AB862E2000CCD12 /* View2.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
 			);

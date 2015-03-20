@@ -13,23 +13,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    View2 *viewController = [[View2 alloc] initWithNibName:nil bundle:nil];
-    
-    
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window = [[UIWindow alloc]
                    initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
+
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    View2 *vc1 = [[View2 alloc] initWithNibName:nil bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc1];
 
-    View2 *vc2 = [[View2 alloc] initWithNibName:nil bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc2];
+    TabBarController *tab = [[TabBarController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = tab;
 
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
