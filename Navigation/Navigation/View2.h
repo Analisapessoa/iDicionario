@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "Dicionario.h"
 
 @interface View2 : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property int flagColor;
 
--(void)animacaoLetra: (UILabel*)label;
+
 -(void)animacaoPalavra: (UIButton*) label;
 -(void)animacaoImagem: (UIImageView *) label;
 

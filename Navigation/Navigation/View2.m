@@ -53,8 +53,8 @@
     dic.botao.frame = CGRectMake(0,100, (self.view.frame.size.width),50);
     [dic.botao setTitle:[dic.palavras objectAtIndex:dic.i] forState:UIControlStateNormal];
     
-    UILongPressGestureRecognizer *tocarNoBotao = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(animacaoPalavra::)];
-    [dic.imagem addGestureRecognizer:tocarNoBotao];
+    UILongPressGestureRecognizer *tocarNoBotao = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(animacaoPalavra:)];
+    [dic.botao addGestureRecognizer:tocarNoBotao];
 
 
     dic.imagem = [[UIImageView alloc] initWithFrame:CGRectMake(15, 200, 300, 300)];
@@ -67,28 +67,25 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    ;
-}
-            
--(void)viewWillAppear:(BOOL)animated
-{
-    ;
-}
 
--(void)animacaoLetra:(UILabel *)label
-{
-    ;
-}
+//N SEI SE VAI PRECISAR...
+//-(void)viewDidAppear:(BOOL)animated
+//{
+//    ;
+//}
+//            
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    ;
+//}
 
--(void)animacaoPalavra:(UILongPressGestureRecognizer *)touch
-{
+
+-(void)animacaoPalavra:(UILongPressGestureRecognizer *)touch {
     if(touch.state == UIGestureRecognizerStateBegan){
         [UIView animateWithDuration:1.0 animations:^{
             AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
@@ -97,12 +94,12 @@
             utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
             [utterance setRate:0.03f];
             [synthesizer speakUtterance:utterance];
-            dic.imagem.transform = CGAffineTransformMakeScale(1.3, 1.3);
+            dic.botao.transform = CGAffineTransformMakeScale(1.3, 1.3);
         }];
     }
     else if (touch.state == UIGestureRecognizerStateEnded) {
         [UIView animateWithDuration:1.0 animations:^{
-            dic.imagem.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            dic.botao.transform = CGAffineTransformMakeScale(1.0, 1.0);
         }];
     }
 }
@@ -154,9 +151,8 @@
     
 }
             
--(void)next:(id)sender
-{
-    if (dic.i==3) {
+-(void)next:(id)sender {
+    if (dic.i==25) {
         dic.i=0;
     }
     else dic.i++;
@@ -182,8 +178,7 @@
 
 }
 
--(void)back:(id)sender
-{
+-(void)back:(id)sender {
     if (dic.i==0) {
         dic.i=25;
     }
@@ -209,6 +204,23 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   UITouch *tocar = [touches anyObject];
+    if (tocar.phase == UITouchPhaseBegan)
+    {
+        [dic.imagem resignFirstResponder];
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *tocar = [touches anyObject];
+    CGPoint posicao = [tocar locationInView:self.view];
+    dic.imagem.center = CGPointMake(posicao.x, posicao.y);
+    
 }
 
 

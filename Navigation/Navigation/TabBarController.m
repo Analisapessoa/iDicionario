@@ -29,8 +29,8 @@
     [tabar addObject:navigation];
     [tabar addObject:lista];
     [self setViewControllers:tabar];
-    navigation.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Palavras" image:[UIImage imageNamed:@"A.jpg"] tag:1];
-    lista.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Lista" image:[UIImage imageNamed:@"B.jpg"] tag:2];
+    navigation.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Palavras" image:[UIImage imageNamed:@""] tag:1];
+    lista.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Lista" image:[UIImage imageNamed:@""] tag:2];
     
 
 }

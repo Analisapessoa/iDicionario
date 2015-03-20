@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     dic = [Dicionario instance];
-    _tv = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height-50)];
+    _tv = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height)];
     _tv.delegate = self;
     _tv.dataSource = self;
     
@@ -59,6 +59,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *celula = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"celula"];
     long row = [indexPath row];
     [celula.textLabel setText: [dic.letras objectAtIndex:row]];
